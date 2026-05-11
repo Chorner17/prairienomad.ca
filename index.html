@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prairie Nomad Technologies</title>
+  <meta name="description" content="Prairie Nomad builds practical, intelligent mobile applications for people who work in the real world. Based in Saskatchewan, Canada.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
   <style>
@@ -12,10 +13,12 @@
     :root {
       --bg: #080f0b;
       --surface: #0f1f14;
+      --surface2: #122318;
       --border: rgba(255,255,255,0.06);
       --green: #4CAF50;
       --green-dim: rgba(76,175,80,0.12);
       --gold: #FFB300;
+      --gold-dim: rgba(255,179,0,0.1);
       --text: #e8f0e9;
       --muted: #7a9b7d;
       --serif: 'DM Serif Display', Georgia, serif;
@@ -42,7 +45,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: linear-gradient(to bottom, rgba(8,15,11,0.95), transparent);
+      background: linear-gradient(to bottom, rgba(8,15,11,0.97), transparent);
       backdrop-filter: blur(8px);
     }
 
@@ -56,12 +59,18 @@
 
     .logo span { color: var(--green); }
 
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
     nav a {
       color: var(--muted);
       text-decoration: none;
       font-size: 14px;
       font-weight: 400;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.03em;
       transition: color 0.2s;
     }
 
@@ -82,8 +91,8 @@
       content: '';
       position: absolute;
       top: -200px; right: -200px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(76,175,80,0.08) 0%, transparent 70%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(76,175,80,0.07) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -91,7 +100,7 @@
       content: '';
       position: absolute;
       bottom: -100px; left: -100px;
-      width: 400px; height: 400px;
+      width: 500px; height: 500px;
       background: radial-gradient(circle, rgba(255,179,0,0.04) 0%, transparent 70%);
       pointer-events: none;
     }
@@ -113,7 +122,7 @@
       font-weight: 400;
       line-height: 1.1;
       letter-spacing: -0.02em;
-      max-width: 700px;
+      max-width: 750px;
       opacity: 0;
       animation: fadeUp 0.8s ease forwards 0.4s;
     }
@@ -127,7 +136,7 @@
       margin-top: 28px;
       font-size: 17px;
       color: var(--muted);
-      max-width: 480px;
+      max-width: 500px;
       line-height: 1.7;
       opacity: 0;
       animation: fadeUp 0.8s ease forwards 0.6s;
@@ -138,6 +147,7 @@
       display: flex;
       gap: 16px;
       align-items: center;
+      flex-wrap: wrap;
       opacity: 0;
       animation: fadeUp 0.8s ease forwards 0.8s;
     }
@@ -171,14 +181,7 @@
 
     .btn-ghost:hover { color: var(--text); }
 
-    /* ── Divider ── */
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 0 48px;
-    }
-
-    /* ── Product section ── */
+    /* ── Section shared ── */
     .section {
       padding: 100px 48px;
       max-width: 1100px;
@@ -192,6 +195,70 @@
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 48px;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0 48px;
+    }
+
+    /* ── Mission & Vision ── */
+    .mv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .mv-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .mv-card:hover { border-color: rgba(76,175,80,0.15); }
+
+    .mv-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle at top right, rgba(76,175,80,0.05), transparent 70%);
+      pointer-events: none;
+    }
+
+    .mv-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+
+    .mv-card h2 {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .mv-card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    /* ── Products ── */
+    .products-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
 
     .product-card {
@@ -208,17 +275,23 @@
       transition: border-color 0.3s;
     }
 
-    .product-card:hover {
-      border-color: rgba(76,175,80,0.2);
-    }
+    .product-card:hover { border-color: rgba(76,175,80,0.2); }
 
     .product-card::before {
       content: '';
       position: absolute;
       top: 0; right: 0;
       width: 300px; height: 300px;
-      background: radial-gradient(circle at top right, rgba(76,175,80,0.06), transparent 70%);
+      background: radial-gradient(circle at top right, rgba(76,175,80,0.05), transparent 70%);
       pointer-events: none;
+    }
+
+    .product-card.coming-soon {
+      opacity: 0.7;
+    }
+
+    .product-card.coming-soon::before {
+      background: radial-gradient(circle at top right, rgba(255,179,0,0.05), transparent 70%);
     }
 
     .product-badge {
@@ -236,10 +309,16 @@
       letter-spacing: 0.04em;
     }
 
+    .product-badge.soon {
+      background: var(--gold-dim);
+      border-color: rgba(255,179,0,0.2);
+      color: var(--gold);
+    }
+
     .product-badge::before {
       content: '';
       width: 6px; height: 6px;
-      background: var(--green);
+      background: currentColor;
       border-radius: 50%;
     }
 
@@ -311,8 +390,6 @@
       border-color: rgba(255,255,255,0.12);
     }
 
-    .store-btn svg { flex-shrink: 0; }
-
     .product-visual {
       display: flex;
       justify-content: center;
@@ -358,10 +435,23 @@
       border: 1px solid rgba(76,175,80,0.2);
     }
 
+    .phone-icon-img.gold-app {
+      background: linear-gradient(135deg, #2a1f00, #1a1200);
+      border-color: rgba(255,179,0,0.2);
+    }
+
     .phone-icon span {
       font-size: 13px;
       color: var(--muted);
       font-weight: 400;
+    }
+
+    .coming-soon-label {
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 500;
+      text-align: center;
+      margin-top: 8px;
     }
 
     /* ── Values ── */
@@ -378,7 +468,10 @@
     .value-item {
       background: var(--bg);
       padding: 40px 36px;
+      transition: background 0.2s;
     }
+
+    .value-item:hover { background: var(--surface); }
 
     .value-num {
       font-family: var(--serif);
@@ -403,22 +496,46 @@
 
     /* ── Contact ── */
     .contact-section {
-      padding: 80px 48px;
+      padding: 100px 48px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .contact-inner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 80px;
       text-align: center;
-      border-top: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
     }
 
-    .contact-section h2 {
+    .contact-inner::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: 50%;
+      transform: translateX(-50%);
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(76,175,80,0.06), transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-inner h2 {
       font-family: var(--serif);
-      font-size: 36px;
+      font-size: 42px;
       font-weight: 400;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
 
-    .contact-section p {
+    .contact-inner p {
       color: var(--muted);
-      margin-bottom: 32px;
-      font-size: 16px;
+      font-size: 17px;
+      margin-bottom: 40px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
     }
 
     .contact-email {
@@ -427,10 +544,10 @@
       gap: 8px;
       color: var(--green);
       text-decoration: none;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 400;
       border-bottom: 1px solid rgba(76,175,80,0.3);
-      padding-bottom: 2px;
+      padding-bottom: 3px;
       transition: border-color 0.2s;
     }
 
@@ -438,16 +555,25 @@
 
     /* ── Footer ── */
     footer {
-      padding: 32px 48px;
+      padding: 40px 48px;
       border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
-    footer p {
+    .footer-left p {
       font-size: 13px;
       color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
     }
 
     footer a {
@@ -468,14 +594,18 @@
     /* ── Mobile ── */
     @media (max-width: 768px) {
       nav { padding: 20px 24px; }
+      .nav-links { gap: 20px; }
       .hero { padding: 100px 24px 60px; }
       .divider { margin: 0 24px; }
       .section { padding: 60px 24px; }
+      .mv-grid { grid-template-columns: 1fr; }
+      .mv-card { padding: 32px 24px; }
       .product-card { grid-template-columns: 1fr; padding: 32px 24px; gap: 40px; }
       .product-visual { order: -1; }
       .values-grid { grid-template-columns: 1fr; }
       .contact-section { padding: 60px 24px; }
-      footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
+      .contact-inner { padding: 48px 24px; }
+      footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -484,103 +614,177 @@
   <!-- Nav -->
   <nav>
     <a href="#" class="logo">Prairie Nomad<span>.</span></a>
-    <a href="mailto:support@agwise.app">support@agwise.app</a>
+    <div class="nav-links">
+      <a href="#mission">Mission</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </div>
   </nav>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" id="home">
     <p class="hero-eyebrow">Saskatchewan, Canada</p>
-    <h1>Building technology <em>for</em> Canadian farmers.</h1>
-    <p class="hero-sub">Prairie Nomad Technologies creates software that understands the realities of prairie agriculture — built by people who know the land.</p>
+    <h1>Building technology <em>for</em> the real world.</h1>
+    <p class="hero-sub">Prairie Nomad Technologies creates practical, intelligent mobile applications for people who work with their hands — in agriculture, real estate, and beyond.</p>
     <div class="hero-cta">
       <a href="#products" class="btn-primary">Our Products ↓</a>
-      <a href="mailto:support@agwise.app" class="btn-ghost">Get in touch →</a>
+      <a href="#contact" class="btn-ghost">Get in touch →</a>
     </div>
   </section>
+
+  <div class="divider"></div>
+
+  <!-- Mission & Vision -->
+  <div class="section" id="mission">
+    <p class="section-label">Who we are</p>
+    <div class="mv-grid">
+      <div class="mv-card">
+        <div class="mv-tag">Mission</div>
+        <h2>What we do</h2>
+        <p>Prairie Nomad builds practical, intelligent, and easy-to-use mobile applications that help people make better decisions and run more profitable operations — in agriculture, real estate, and wherever real-world work gets done.</p>
+        <br>
+        <p>Starting with AgWise, our flagship farm management app, we create tools designed for the realities of the Canadian prairies and beyond. We combine smart technology with deep local knowledge to deliver actionable insights, save users money, and reduce daily stress.</p>
+        <br>
+        <p>We exist to turn complex data into simple, trustworthy recommendations — built by people who understand the work, for the people doing it.</p>
+      </div>
+      <div class="mv-card">
+        <div class="mv-tag">Vision</div>
+        <h2>Where we're going</h2>
+        <p>To build the world's most practical and intelligent suite of mobile tools for people who live and work in the real world.</p>
+        <br>
+        <p>Born on the Canadian prairies and rooted in real-world problem solving, Prairie Nomad creates simple, powerful applications that deliver measurable results — for anyone whose work, life, or livelihood demands tools that actually work.</p>
+        <br>
+        <p>We are building a family of specialized apps across industries — starting with AgWise, our flagship farm management platform — designed for people who value function over flash and results over complexity.</p>
+        <br>
+        <p>We measure success by the money we save our users, the time we give back to them, and the number of practical problems we solve along the way.</p>
+      </div>
+    </div>
+  </div>
 
   <div class="divider"></div>
 
   <!-- Products -->
   <div class="section" id="products">
     <p class="section-label">Products</p>
+    <div class="products-grid">
 
-    <div class="product-card">
-      <div class="product-content">
-        <div class="product-badge">Now Available</div>
-        <h2>AgWise</h2>
-        <p>Farm management built for Canadian prairie farmers. Track fields, bins, equipment, and grain contracts — with AI-powered recommendations tailored to your operation.</p>
-        <ul class="feature-list">
-          <li>Field tracking with spray logs & yield history</li>
-          <li>Grain bin inventory with estimated value</li>
-          <li>Equipment & maintenance management</li>
-          <li>AI Advisor for seeding, marketing & weather</li>
-          <li>PDF & CSV report export</li>
-          <li>Works offline, always</li>
-        </ul>
-        <div class="app-store-buttons">
-          <a href="https://apps.apple.com" class="store-btn" target="_blank">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            App Store
-          </a>
-          <a href="https://play.google.com" class="store-btn" target="_blank">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.22.97.14l12.47-7.19-2.78-2.78-10.66 9.83zm-1.13-20.7C1.7 3.4 1.5 3.8 1.5 4.32v15.37c0 .52.2.92.55 1.15l.08.05 8.61-8.61v-.2L2.05 3.06zm18.04 9.09l-2.48-1.43-3.04 3.04 3.05 3.05 2.49-1.44c.71-.41.71-1.81-.02-2.22zM4.15.24L16.62 7.43l-2.78 2.78L3.18.38C3.51.3 3.86.36 4.15.24z"/></svg>
-            Google Play
-          </a>
-          <a href="https://agwise.app" class="store-btn" target="_blank">
-            Learn more →
-          </a>
-        </div>
-      </div>
-      <div class="product-visual">
-        <div class="phone-mockup">
-          <div class="phone-icon">
-            <div class="phone-icon-img">
-              <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-                <path d="M22 8 L22 36 M22 8 Q18 12 16 18 M22 8 Q26 12 28 18 M16 22 Q18 26 20 28 M28 22 Q26 26 24 28 M16 28 Q19 32 22 34 M28 28 Q25 32 22 34 M14 34 Q18 38 22 38 M30 34 Q26 38 22 38" stroke="#4CAF50" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <span>AgWise v1.0</span>
+      <!-- AgWise -->
+      <div class="product-card">
+        <div class="product-content">
+          <div class="product-badge">Now Available</div>
+          <h2>AgWise</h2>
+          <p>Farm management built for Canadian prairie farmers. Track fields, bins, equipment, and grain contracts — with AI-powered recommendations tailored to your operation.</p>
+          <ul class="feature-list">
+            <li>Field tracking with spray logs & yield history</li>
+            <li>Grain bin inventory with estimated value</li>
+            <li>Equipment & maintenance management</li>
+            <li>AI Advisor for seeding, marketing & weather</li>
+            <li>PDF & CSV report export</li>
+            <li>Works offline, always</li>
+          </ul>
+          <div class="app-store-buttons">
+            <a href="https://apps.apple.com" class="store-btn" target="_blank">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              App Store
+            </a>
+            <a href="https://play.google.com" class="store-btn" target="_blank">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.22.97.14l12.47-7.19-2.78-2.78-10.66 9.83zm-1.13-20.7C1.7 3.4 1.5 3.8 1.5 4.32v15.37c0 .52.2.92.55 1.15l.08.05 8.61-8.61v-.2L2.05 3.06zm18.04 9.09l-2.48-1.43-3.04 3.04 3.05 3.05 2.49-1.44c.71-.41.71-1.81-.02-2.22zM4.15.24L16.62 7.43l-2.78 2.78L3.18.38C3.51.3 3.86.36 4.15.24z"/></svg>
+              Google Play
+            </a>
+            <a href="https://agwise.app" class="store-btn" target="_blank">
+              Learn more →
+            </a>
           </div>
         </div>
+        <div class="product-visual">
+          <div class="phone-mockup">
+            <div class="phone-icon">
+              <div class="phone-icon-img">
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                  <path d="M22 8 L22 36 M22 8 Q18 12 16 18 M22 8 Q26 12 28 18 M16 22 Q18 26 20 28 M28 22 Q26 26 24 28 M16 28 Q19 32 22 34 M28 28 Q25 32 22 34 M14 34 Q18 38 22 38 M30 34 Q26 38 22 38" stroke="#4CAF50" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <span>AgWise v1.0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Private Listing -->
+      <div class="product-card coming-soon">
+        <div class="product-content">
+          <div class="product-badge soon">Coming Soon</div>
+          <h2>Private Listing</h2>
+          <p>A new kind of real estate platform — built for private listings, direct connections, and transactions done on your terms. No agents required.</p>
+          <p style="margin-top: 16px; font-size: 14px;">More details coming soon. Join our mailing list to be notified at launch.</p>
+          <div style="margin-top: 32px;">
+            <a href="mailto:support@agwise.app?subject=Private Listing - Notify Me" class="store-btn">
+              Notify me at launch →
+            </a>
+          </div>
+        </div>
+        <div class="product-visual">
+          <div class="phone-mockup">
+            <div class="phone-icon">
+              <div class="phone-icon-img gold-app">
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+                  <rect x="10" y="8" width="24" height="28" rx="3" stroke="#FFB300" stroke-width="1.5"/>
+                  <path d="M16 16 h12 M16 21 h12 M16 26 h8" stroke="#FFB300" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="30" cy="30" r="6" fill="#1a1200" stroke="#FFB300" stroke-width="1.5"/>
+                  <path d="M28 30 l1.5 1.5 L32 28" stroke="#FFB300" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <span style="color: #FFB300;">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- How We Work -->
+  <div class="section">
+    <p class="section-label">How we work</p>
+    <div class="values-grid">
+      <div class="value-item">
+        <div class="value-num">01</div>
+        <div class="value-title">Practical First</div>
+        <div class="value-body">Every feature is built around real workflows — not what looks good in a pitch deck. If it doesn't solve a real problem, we don't build it.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">02</div>
+        <div class="value-title">Privacy by Default</div>
+        <div class="value-body">Your data is yours. We never sell it, never share it without your consent, and store it securely. Full stop.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">03</div>
+        <div class="value-title">Built for Canada</div>
+        <div class="value-body">Prairie-born and Canadian-built. We understand local markets, regulations, and the realities of working in this country.</div>
       </div>
     </div>
   </div>
 
   <div class="divider"></div>
 
-  <!-- Values -->
-  <div class="section">
-    <p class="section-label">How we work</p>
-    <div class="values-grid">
-      <div class="value-item">
-        <div class="value-num">01</div>
-        <div class="value-title">Farmer First</div>
-        <div class="value-body">Every feature is built around real farm workflows — not what looks good in a pitch deck.</div>
-      </div>
-      <div class="value-item">
-        <div class="value-num">02</div>
-        <div class="value-title">Privacy by Default</div>
-        <div class="value-body">Your farm data is yours. We never sell it, never share it, and store it securely.</div>
-      </div>
-      <div class="value-item">
-        <div class="value-num">03</div>
-        <div class="value-title">Built for Canada</div>
-        <div class="value-body">CAD pricing, Canadian crops, prairie weather. No US-centric assumptions.</div>
-      </div>
-    </div>
-  </div>
-
   <!-- Contact -->
-  <div class="contact-section">
-    <h2>Let's talk.</h2>
-    <p>Partnership inquiries, feedback, or just want to say hello.</p>
-    <a href="mailto:support@agwise.app" class="contact-email">support@agwise.app</a>
+  <div class="contact-section" id="contact">
+    <div class="contact-inner">
+      <h2>Let's talk.</h2>
+      <p>Partnership inquiries, investment interest, media requests, or just want to say hello — we'd love to hear from you.</p>
+      <a href="mailto:support@agwise.app" class="contact-email">support@agwise.app</a>
+    </div>
   </div>
 
   <!-- Footer -->
   <footer>
-    <p>© 2026 Prairie Nomad Technologies. Saskatchewan, Canada.</p>
-    <div style="display:flex; gap:24px;">
+    <div class="footer-left">
+      <p>© 2026 Prairie Nomad Technologies</p>
+      <p>Saskatchewan, Canada</p>
+    </div>
+    <div class="footer-links">
       <a href="https://agwise.app">AgWise</a>
       <a href="https://agwise.app/privacy">Privacy Policy</a>
       <a href="mailto:support@agwise.app">Contact</a>
